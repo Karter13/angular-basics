@@ -1,1 +1,18 @@
-<p>post-form works!</p>
+<div>
+
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Title..."
+    [(ngModel)]="title"
+  >
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Text..."
+    [(ngModel)]="text"
+  >
+
+  <button class="btn" (click)="addPost()">Добавить пост</button>
+
+</div>
