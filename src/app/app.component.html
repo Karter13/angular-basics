@@ -1,34 +1,12 @@
 <div class="container">
-  <h1>Angular Directives</h1>
+  <h1>Angular Pipes</h1>
 
-  <p [appStyle]="'red'" [dStyles]="{border: '1px solid blue', borderRadius: '5px'}">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, natus!
-  </p>
+  <p>{{10 | mult}}</p>
+  <p>{{10 | mult: 2}}</p>
+  <p>{{10 | mult: 3}}</p>
+  <p>{{10 | mult: 5}}</p>
+  <p>{{10 | mult: 8}}</p>
+  <p>{{10 | mult: 13}}</p>
 
-  <p [appStyle]="'blue'" [dStyles]="{border: '3px solid red', borderRadius: '15px'}">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, natus!
-  </p>
-
-  <button (click)="isVisible = !isVisible">Toggle</button>
-
-  <!--  <div *ngIf="isVisible" class="wrap">-->
-  <!--    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ducimus et exercitationem magni quam-->
-  <!--      quod.</p>-->
-  <!--  </div>-->
-
-  <!--  <ng-template-->
-  <!--    [ngIf]="isVisible">-->
-  <!--    <div class="wrap">-->
-  <!--      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ducimus et exercitationem magni quam-->
-  <!--        quod.</p>-->
-  <!--    </div>-->
-  <!--  </ng-template>-->
-
-
-  <div class="wrap" *appIfnot="!isVisible">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ducimus et exercitationem magni quam
-      quod.</p>
-  </div>
-
-
+  <p>{{'Hello World   ' | exMarks}}</p>
 </div>
