@@ -1,30 +1,32 @@
 import {Component, OnInit} from '@angular/core';
-
-export interface Post {
-  title: string,
-  text: string,
-}
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
-  search = '';
-  searchField = 'title';
 
-  posts: Array<Post> = [
-    {title: 'Angular', text: 'I started study Angular'},
-    {title: 'React', text: 'I like React'},
-    {title: 'Lodash', text: 'I do not now Lodash'},
-  ];
+  p: Promise<string> = new Promise<string>(resolve => {
+    setTimeout(() => {
+      resolve('Prpomise Resoloved');
+    }, 4000);
+  });
 
-  addNewPost() {
-    this.posts.unshift({
-      title: 'Maikl',
-      text: 'He likes React and Angular '
+  date$: Observable<Date> = new Observable( obs => {
+    setInterval(() => {
+      obs.next(new Date());
+    }, 1000);
+  });
+
+  date?: Date;
+
+  ngOnInit(): void {
+    this.date$.subscribe(date => {
+      this.date = date;
     });
   }
+
 }
