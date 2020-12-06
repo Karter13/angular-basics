@@ -3,14 +3,14 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {FormsModule} from '@angular/forms';
-import { PostFormComponent } from './post-form/post-form.component';
-import { PostComponent } from './post/post.component';
+import {StyleDirective} from './directive/style.directive';
+import { IfnotDirective } from './directive/ifnot.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostFormComponent,
-    PostComponent,
+    StyleDirective,
+    IfnotDirective,
   ],
   imports: [
     BrowserModule,
@@ -19,4 +19,5 @@ import { PostComponent } from './post/post.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
