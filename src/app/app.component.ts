@@ -1,13 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {delay} from 'rxjs/operators';
-import {TodosService} from './todos.service';
+import {Todo, TodosService} from './todos.service';
 
-export interface Todo {
-  completed: boolean;
-  title: string;
-  id?: number;
-}
 
 @Component({
   selector: 'app-root',
@@ -36,9 +29,9 @@ export class AppComponent implements OnInit {
       title: this.todoTitle,
       completed: false,
     }).subscribe(todo => {
-        this.todos.unshift(todo);
-        this.todoTitle = '';
-      });
+      this.todos.unshift(todo);
+      this.todoTitle = '';
+    });
   }
 
   fetchTodos() {
@@ -55,6 +48,13 @@ export class AppComponent implements OnInit {
       .subscribe(() => {
         this.todos = this.todos.filter(t => t.id !== id);
       });
+  }
+
+  completeTodo(id: number | undefined) {
+    this.todosService.completeTodo(id).subscribe((todo) => {
+      const tod: any = this.todos.find(t => t.id === todo.id);
+      tod.completed = true;
+    });
   }
 }
 

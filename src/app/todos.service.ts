@@ -1,7 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Todo} from './app.component';
 import {delay} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+
+export interface Todo {
+  completed: boolean;
+  title: string;
+  id?: number;
+}
 
 @Injectable({providedIn: 'root'})
 export class TodosService {
@@ -9,17 +15,23 @@ export class TodosService {
   constructor(private http: HttpClient) {
   }
 
-  addTodo(todo: Todo) {
-   return  this.http.post<Todo>('https://jsonplaceholder.typicode.com/todos', todo);
+  addTodo(todo: Todo): Observable<Todo> {
+    return this.http.post<Todo>('https://jsonplaceholder.typicode.com/todos', todo);
   }
 
-  fetchTodos() {
+  fetchTodos(): Observable<Todo[]> {
     return this.http.get<Array<Todo>>('https://jsonplaceholder.typicode.com/todos?_limit=2')
       .pipe(delay(2000));
   }
 
-  removeTodo(id: number | undefined) {
+  removeTodo(id: number | undefined): Observable<void> {
     return this.http.delete<void>(`https://jsonplaceholder.typicode.com/todos/${id}`);
+  }
+
+  completeTodo(id: number | undefined): Observable<Todo> {
+    return this.http.put<Todo>(`https://jsonplaceholder.typicode.com/todos/${id}`, {
+      completed: true
+    });
   }
 
 }
