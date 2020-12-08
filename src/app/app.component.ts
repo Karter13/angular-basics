@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
       .subscribe(todo => {
         console.log('NewTodo: ', todo);
         this.todos.unshift(todo);
+        this.todoTitle = '';
       });
   }
 }
