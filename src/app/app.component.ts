@@ -22,7 +22,7 @@ export class AppComponent {
     component.instance.title = 'Dynamic title';
     component.instance.close.subscribe(() => {
       this.refDir.containerRef.clear();
-    })
+    });
 
   }
 }
