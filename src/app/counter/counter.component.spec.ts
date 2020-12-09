@@ -4,7 +4,7 @@ describe('CounterComponent', () => {
   let component: CounterComponent;
   beforeEach(() => {
     component = new CounterComponent();
-  })
+  });
 
   it('should increment counter by 1', () => {
 
@@ -18,4 +18,11 @@ describe('CounterComponent', () => {
     expect(component.counter).toBe(-1);
   });
 
-})
+  it('should increment value by event emitter', () => {
+    let result = 0;
+    component.counterEmitter.subscribe((v: any) => result = v);
+    component.increment();
+    expect(result).toBe(1);
+  });
+
+});
