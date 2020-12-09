@@ -12,7 +12,7 @@ export class PostsComponent implements OnInit {
   showIds = false;
 
   constructor(
-    private postsService: PostsService,
+    public postsService: PostsService,
     private route: ActivatedRoute,
     private router: Router,
   ) {
