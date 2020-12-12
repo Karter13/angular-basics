@@ -10,15 +10,23 @@ export class ParentExampleComponent implements AfterViewInit {
 
   currentItem = 'From Parent example';
 
+  show: boolean = (false);
+
   @ViewChild(ChildExampleComponent)
   viewChild!: ChildExampleComponent;
 
-  constructor() { }
+  constructor() {
+  }
+
   ngAfterViewInit(): void {
     console.log(this.viewChild);
   }
 
   dataChangeHandler(message: any) {
     console.log(message);
+  }
+
+  showExzample() {
+    this.show = !this.show
   }
 }

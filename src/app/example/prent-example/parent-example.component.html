@@ -2,3 +2,6 @@
   [title]="currentItem"
   (dataChanged)="dataChangeHandler($event)"
 ></app-child-example>
+<div *ngIf="show">This will be added to the DOM</div>
+<div *ngIf="!show">This will be removed from the DOM</div>
+<button (click)="showExzample()" class="btn">change</button>
