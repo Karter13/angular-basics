@@ -53,7 +53,7 @@ const searchSubscription = search$.pipe(
     return (event.target as HTMLInputElement).value;
   }),
   debounceTime(1000),
-  map(value => value.length > 3 ? value : ''),
+  map(value   => value.length > 3 ? value : ''),
   distinctUntilChanged(),
   takeUntil(stop$)
 ).subscribe(value => {
