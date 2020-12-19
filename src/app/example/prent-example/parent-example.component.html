@@ -2,6 +2,24 @@
   [title]="currentItem"
   (dataChanged)="dataChangeHandler($event)"
 ></app-child-example>
-<div *ngIf="show">This will be added to the DOM</div>
-<div *ngIf="!show">This will be removed from the DOM</div>
+<div *ngIf="show" [ngStyle]="{color: 'green', fontSize: '2rem', fontWeight: 'bold'}">This will be added to the DOM</div>
+<div *ngIf="!show" appCastomDerective [size]="2" >This will be removed from the DOM</div>
 <button (click)="showExzample()" class="btn">change</button>
+
+<p *ngIf="false">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet eaque fugit, ipsa repellat sunt tenetur.</p>
+
+<ng-template [ngIf]="false">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque debitis enim, maiores quae quia voluptatem.</p>
+</ng-template>
+
+<hr>
+
+<p>Transform date: {{eDate | date:'dd.MM.yyyy'}}</p>
+
+<hr>
+
+<p *ngFor="let user of list | slice: 0:3">{{ user }}</p>
+
+<hr>
+<p>{{text | cut}}</p>
+<p>{{text }}</p>

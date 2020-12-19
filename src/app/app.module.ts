@@ -5,12 +5,20 @@ import {AppComponent} from './app.component';
 import {FormsModule} from '@angular/forms';
 import { ChildExampleComponent } from './example/child-example/child-example.component';
 import { ParentExampleComponent } from './example/prent-example/parent-example.component';
+import { LodashComponent } from './lodash/lodash.component';
+import { CastomDerectiveDirective } from './castom-derective.directive';
+import { CutPipe } from './cut.pipe';
+import { ElementRefDemoComponent } from './element-ref-demo/element-ref-demo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ParentExampleComponent,
-    ChildExampleComponent
+    ChildExampleComponent,
+    LodashComponent,
+    CastomDerectiveDirective,
+    CutPipe,
+    ElementRefDemoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {ChildExampleComponent} from '../child-example/child-example.component';
 
 @Component({
@@ -11,6 +11,10 @@ export class ParentExampleComponent implements AfterViewInit {
   currentItem = 'From Parent example';
 
   show: boolean = (false);
+  list = ['Jack', 'Alice', 'Michael'];
+  eDate = new Date();
+
+  text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab atque corporis, cupiditate distinctio doloremque eaque, est expedita in nisi omnis perferendis placeat porro quisquam, recusandae reprehenderit suscipit voluptates. Aliquam, vitae.';
 
   @ViewChild(ChildExampleComponent)
   viewChild!: ChildExampleComponent;
@@ -27,6 +31,6 @@ export class ParentExampleComponent implements AfterViewInit {
   }
 
   showExzample() {
-    this.show = !this.show
+    this.show = !this.show;
   }
 }
