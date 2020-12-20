@@ -12,12 +12,11 @@ import * as _ from 'lodash';
 export class AppComponent {
 
   name = 'Maikl';
+  title = 'Input';
+  toggle = true;
 
   hiGay() {
     return `Hello, ${this.name}! `;
   }
-
-
-
-
 }
+

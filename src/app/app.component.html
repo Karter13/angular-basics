@@ -1,1 +1,10 @@
-<h1>Привет!!!! </h1>
+<h1>Привет!!!! 🐰 </h1>
+<!--<input type="text" [value]="title" (input)="onInput($event)">-->
+<button (click)="toggle = !toggle">Toggle</button>
+<input type="text" [(ngModel)]="title">
+<!--<p [ngClass]="{red: toggle, blue: !toggle}">{{title}}</p>-->
+<p [class.red]="toggle"
+   [class.blue]="!toggle"
+>{{title}}</p>
+
+
